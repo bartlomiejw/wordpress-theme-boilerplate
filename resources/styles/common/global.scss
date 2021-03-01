@@ -1,0 +1,23 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  @apply font-sans;
+}
+
+.brand {
+  @apply text-3xl font-medium text-indigo-500;
+}
