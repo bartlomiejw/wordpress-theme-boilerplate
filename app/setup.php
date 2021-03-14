@@ -54,10 +54,15 @@ add_action('after_setup_theme', function () {
      * @link https://roots.io/plugins/soil/
      */
     add_theme_support('soil', [
-        'clean-up',
-        'nav-walker',
-        'nice-search',
-        'relative-urls'
+    'clean-up',
+    'disable-rest-api',
+    'disable-asset-versioning',
+    'disable-trackbacks',
+    'google-analytics' => 'UA-XXXXX-Y',
+    'js-to-footer',
+    'nav-walker',
+    'nice-search',
+    'relative-urls'
     ]);
 
     /**
@@ -173,6 +178,10 @@ add_action('after_setup_theme', function () {
     add_theme_support('customize-selective-refresh-widgets');
 }, 20);
 
+/* Enable custom logo */
+
+add_theme_support( 'custom-logo' );
+
 /**
  * Register the theme sidebars.
  *
@@ -207,3 +216,59 @@ add_action('widgets_init', function () {
 $books = new PostType('book');
 
 $books->register();
+
+// //////////////////////
+// // SECURE WP_ADMIN //
+// //////////////////////
+// // ---- 1. edit wp-config.php
+// /* tells wordpress what the new directory is, and updates the cookie path.
+// define( 'WP_ADMIN_DIR', 'manager' );
+// define( 'ADMIN_COOKIE_PATH', '/' );
+// */
+
+// // ---- 2. Url Rewrite
+// /* for APACHE
+// RewriteRule ^manager/(.*) wp-admin/$1?%{QUERY_STRING} [L]
+// RewriteRule ^connect$ wp-login.php
+// */
+// /* for NGINX
+// location ~ ^/ifSubFolder/manager/(.*)$ {
+// try_files $uri $uri/ /ifSubFolder/wp-admin/$1;
+// }
+// location ~ ^/ifSubFolder/connect {
+// try_files $uri $uri/ /ifSubFolder/wp-login.php?$args;
+// }
+// */
+
+// // NEXT in functions.php
+
+// // ---- 3. redirects the user if there are trying to reach either of the secure areas.
+// if (strpos($_SERVER['REQUEST_URI'], 'wp-admin') !== false || strpos($_SERVER['REQUEST_URI'], 'wp-login') !== false ||
+// strpos($_SERVER['REQUEST_URI'], 'admin') !== false || strpos($_SERVER['REQUEST_URI'], 'login') !== false) {
+// header("HTTP/1.1 301 Moved Permanently");
+// header('Location: /ifSubFolder/'); die();
+// }
+// // ---- 4. replace wp-admin url’s with the proper name.
+// add_filter('site_url', function ( $url, $path, $orig_scheme ) {
+// $old = array( "/(wp-admin)/");
+// $admin_dir = WP_ADMIN_DIR;
+// $new = array($admin_dir);
+// return preg_replace( $old, $new, $url, 1);
+// }, 10, 3);
+
+// // ---- 5. make sure the login page redirects to the proper page.
+// add_action('login_form','redirect_wp_admin');
+// function redirect_wp_admin(){
+// $redirect_to = $_SERVER['REQUEST_URI'];
+// if(count($_REQUEST)> 0 && array_key_exists('redirect_to', $_REQUEST)) {
+// $redirect_to = $_REQUEST['redirect_to'];
+// }
+// }
+// // --- 6. function to handle the same issues the wpadmin_filter does with naming.
+// add_filter('site_url', function ( $url, $path, $orig_scheme ) {
+// $old = array( "/(wp-login\.php)/");
+// $new = array( "connect");
+// return preg_replace( $old, $new, $url, 1);
+// }, 10, 3);
+
+// // END SECURE ADMIN/LOGIN URL

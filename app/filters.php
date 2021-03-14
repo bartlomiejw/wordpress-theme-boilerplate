@@ -111,3 +111,19 @@ update_option( 'use_smilies', 0 );
 // echo template('partials.searchform');
 // return $form;
 // });
+
+
+add_filter( 'nav_menu_link_attributes', function ( $atts, $item, $args ) {
+if (property_exists($args, 'link_class')) {
+$atts['class'] = $args->link_class;
+}
+return $atts;
+}, 1, 3 );
+
+
+add_filter('nav_menu_css_class', function ($classes, $item, $args) {
+if (property_exists($args, 'list_item_class')) {
+$classes[] = $args->list_item_class;
+}
+return $classes;
+}, 1, 3);

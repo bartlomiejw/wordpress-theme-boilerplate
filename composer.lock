@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1e4c928402d7192a24ebb662ea7d7950",
+    "content-hash": "88a72afd1ed1c2e0d8f305ff3514dba5",
     "packages": [
         {
             "name": "brick/math",
@@ -2015,6 +2015,83 @@
                 }
             ],
             "time": "2021-02-14T04:52:44+00:00"
+        },
+        {
+            "name": "roots/soil",
+            "version": "4.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/roots/soil.git",
+                "reference": "6b3aab8ea41877136f53757ef85449f2484bfd83"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/roots/soil/zipball/6b3aab8ea41877136f53757ef85449f2484bfd83",
+                "reference": "6b3aab8ea41877136f53757ef85449f2484bfd83",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "brain/monkey": "^2.4",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+                "mockery/mockery": "^1.3 | ^1.4",
+                "phpcompatibility/php-compatibility": "^9.3",
+                "phpunit/phpunit": "<= 9.3",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "Roots\\Soil\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Word",
+                    "email": "ben@benword.com",
+                    "homepage": "https://github.com/retlehs"
+                },
+                {
+                    "name": "Scott Walkinshaw",
+                    "email": "scott.walkinshaw@gmail.com",
+                    "homepage": "https://github.com/swalkinshaw"
+                },
+                {
+                    "name": "QWp6t",
+                    "email": "craig@roots.io",
+                    "homepage": "https://github.com/qwp6t"
+                }
+            ],
+            "description": "A WordPress plugin which contains a collection of modules to apply theme-agnostic front-end modifications",
+            "homepage": "https://roots.io/plugins/soil/",
+            "keywords": [
+                "wordpress"
+            ],
+            "support": {
+                "forum": "https://discourse.roots.io/",
+                "issues": "https://github.com/roots/soil/issues",
+                "source": "https://github.com/roots/soil/tree/4.0.4"
+            },
+            "funding": [
+                {
+                    "url": "https://roots.io/plugins/soil/",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/rootsdev",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2020-09-11T00:46:10+00:00"
         },
         {
             "name": "roots/support",
@@ -4150,6 +4227,45 @@
                 }
             ],
             "time": "2020-11-12T00:07:28+00:00"
+        },
+        {
+            "name": "wpvillain/tailwind-navwalker",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wpvillain/tailwind-navwalker.git",
+                "reference": "18d9ccfc92df895381948797ddeaa744f16db898"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wpvillain/tailwind-navwalker/zipball/18d9ccfc92df895381948797ddeaa744f16db898",
+                "reference": "18d9ccfc92df895381948797ddeaa744f16db898",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "wordpress-muplugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Jasper Frumau",
+                    "email": "jasper@wpvilla.in"
+                }
+            ],
+            "description": "Tailwind Navwalker Menu for WordPress",
+            "homepage": "https://wpvilla.in",
+            "keywords": [
+                "menu",
+                "navwalker",
+                "tailwind css"
+            ],
+            "support": {
+                "issues": "https://github.com/wpvillain/tailwind-navwalker/issues",
+                "source": "https://github.com/wpvillain/tailwind-navwalker/tree/master"
+            },
+            "time": "2020-10-29T01:17:19+00:00"
         }
     ],
     "packages-dev": [
@@ -4284,7 +4400,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "roots/acorn": 20
+        "roots/acorn": 20,
+        "wpvillain/tailwind-navwalker": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

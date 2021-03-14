@@ -41,7 +41,9 @@
   "require": {
     "php": "^7.3|^8.0",
     "jjgrainger/posttypes": "^2.1",
-    "roots/acorn": "dev-main"
+    "roots/acorn": "dev-main",
+    "roots/soil": "^4.0",
+    "wpvillain/tailwind-navwalker": "dev-master"
   },
   "require-dev": {
     "filp/whoops": "^2.9",

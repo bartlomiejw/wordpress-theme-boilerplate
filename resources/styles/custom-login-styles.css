@@ -1,0 +1,130 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap');
+
+body.login {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: url('../images/admin/multiply.png');
+   background-blend-mode: multiply;
+  background-size: cover;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* Change font colors*/
+.login form,
+.login #login_error,
+.login .message,
+.login .success,
+.login #backtoblog a,
+.login #nav a,
+.login label,
+#login form p {
+  color: #fff;
+  border: none;
+}
+
+.login form {
+background-color: #020887;
+  box-shadow: 0px 2.45734px 30.7167px rgba(0, 0, 0, 0.10) !important;
+}
+
+/* Replace WP logo with your own logo */
+.login h1 a {
+  background-image: url('../images/admin/logo.svg');
+  background-size: contain;
+  width: 100%;
+}
+
+/* 2. Login page
+*
+*   Customizing Login page only
+*
+*   Change background - Background position should be changed depending on which image you'll use */
+body.login-action-login {
+  background-color: #020887;
+}
+
+/* Change margins to better position with the image used on that page */
+.login-action-login #login {
+  margin: auto auto 10% auto;
+}
+
+/* Opacity on every form for better visualisation of your stunning background image */
+.login-action-login form,
+.login-action-login #login_error,
+.login-action-login .message,
+.login-action-login .success {
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+}
+
+/* 3. Register page
+*
+*   Customizing Registration page only
+*
+* Change background - Background position should be changed depending on which image you'll use */
+body.login-action-register {
+  background-image: url('/img/register-page.jpg');
+  background-position: center right;
+}
+/* Change margins to better position with the image used on that page */
+.login-action-register #login {
+  margin: auto 10% auto auto;
+}
+
+/* Opacity on every form */
+.login-action-register form,
+.login-action-register #login_error,
+.login-action-register .message,
+.login-action-register .success {
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+}
+
+/* Changing WordPress logo to grayscale - better contrast with the image used on that page */
+.login-action-register h1 a {
+  filter: grayscale(100%);
+  background-image: url('/img/wordpress-logo.png');
+}
+
+/* 4. LOST PASSWORD PAGE
+*
+*   Customizing Lost password page only
+*
+*   Note: If you're using WooCommerce, that plugin uses its own lost password page so you may need to not use that part and create your own customization for that Woo page with body tag .woocommerce-lost-password !
+*   If you're using some other plugin managing wp-login pages (like Buddypress) you may need to visit each page, check which body classes should be used and create your own code (classes may be different on custom plugins)
+*
+*    Change background - Background position should be changed depending on which image you'll use */
+body.login-action-lostpassword {
+  background-image: url('/img/lost-password-page.jpg');
+  background-position: center right;
+}
+/* Change margins to better position with the image used on that page */
+.login-action-lostpassword #login {
+  margin: auto 10% auto auto;
+}
+
+/* Opacity on every form */
+.login-action-lostpassword form,
+.login-action-lostpassword #login_error,
+.login-action-lostpassword .message,
+.login-action-lostpassword .success {
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+}
+/*
+*
+*   That's it, hope you enjoy it.
+*   Thoughts, questions, feedbacks? Feel free to ping me on twitter, @gugaalves
+*
+*/
+
+.wp-core-ui .button-group.button-large .button, .wp-core-ui .button.button-large {
+  background-color: #E94F37;
+  border-radius: 0;
+  border: none;
+}
+
+.login form .input, .login form input[type=checkbox], .login input[type=text] {
+  border-radius: 0 !important;
+}

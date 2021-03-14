@@ -34,3 +34,10 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
 add_action('customize_preview_init', function () {
     wp_enqueue_script('sage/customizer.js', asset('scripts/customizer.js')->uri(), ['customize-preview'], null, true);
 });
+
+
+
+//This loads the function above on the login page
+add_action( 'login_enqueue_scripts', function () {
+wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/resources/styles/custom-login-styles.css' );
+} );
