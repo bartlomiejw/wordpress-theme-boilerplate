@@ -31,86 +31,88 @@
 
 
 /**
-* Wordpress Custom Pagination.
-*
-*/
+ * Wordpress Custom Pagination.
+ *
+ */
 
-function webness_pagination( \WP_Query $wp_query = null, $echo = true, $params = [] ) {
-if ( null === $wp_query ) {
-global $wp_query;
-}
+function webness_pagination(\WP_Query $wp_query = null, $echo = true, $params = [])
+{
+    if (null === $wp_query) {
+        global $wp_query;
+    }
 
-$add_args = [];
+    $add_args = [];
 
-//add query (GET) parameters to generated page URLs
-/*if (isset($_GET[ 'sort' ])) {
+    //add query (GET) parameters to generated page URLs
+    /*if (isset($_GET[ 'sort' ])) {
 $add_args[ 'sort' ] = (string)$_GET[ 'sort' ];
 }*/
 
-$pages = paginate_links( array_merge( [
-'base' => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
-'format' => '/page/%#%',
-'current' => max( 1, get_query_var( 'page_val' ) ),
-'total' => $wp_query->max_num_pages,
-'type' => 'array',
-'show_all' => true,
-'end_size' => 3,
-'mid_size' => 1,
-'prev_next' => true,
-'prev_text' => 'Poprzedni',
-'next_text' => 'Następny',
-'add_args' => $add_args,
-'add_fragment' => ''
-], $params )
-);
+    $pages = paginate_links(
+        array_merge([
+            'base' => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
+            'format' => '/page/%#%',
+            'current' => max(1, get_query_var('page_val')),
+            'total' => $wp_query->max_num_pages,
+            'type' => 'array',
+            'show_all' => true,
+            'end_size' => 3,
+            'mid_size' => 1,
+            'prev_next' => true,
+            'prev_text' => 'Poprzedni',
+            'next_text' => 'Następny',
+            'add_args' => $add_args,
+            'add_fragment' => ''
+        ], $params)
+    );
 
-if ( is_array( $pages ) ) {
-// $current_page = (get_query_var('page_val') ? get_query_var('page_val') : 1);
+    if (is_array($pages)) {
+        // $current_page = (get_query_var('page_val') ? get_query_var('page_val') : 1);
 
-$pagination = '<div class="pagination-wrap">
+        $pagination = '<div class="pagination-wrap">
     <ul class="pagination">
         <li class="page-item prev-posts"></li><span>';
 
-            foreach ( $pages as $page ) {
+        foreach ($pages as $page) {
             $pagination .= '<li class="page-item' . (strpos($page, 'current') !== false ? ' active' : '') . '"> ' .
                 str_replace('page-numbers', 'page-link', $page) . '</li>';
-            }
+        }
 
-            $pagination .= '</span>
+        $pagination .= '</span>
         <li class="page-item next-posts"></li>
     </ul>
 </div>';
 
-return $pagination;
-}
+        return $pagination;
+    }
 
-return null;
+    return null;
 }
 
 /**
-* Comments turn off functions.
-*
-*/
+ * Comments turn off functions.
+ *
+ */
 
 add_action('admin_init', function () {
-global $pagenow;
+    global $pagenow;
 
-// Redirect any user trying to access comments page
-if ($pagenow === 'edit-comments.php') {
-wp_redirect(admin_url());
-exit;
-}
+    // Redirect any user trying to access comments page
+    if ($pagenow === 'edit-comments.php') {
+        wp_redirect(admin_url());
+        exit;
+    }
 
-// Remove comments metabox from dashboard
-remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal');
+    // Remove comments metabox from dashboard
+    remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal');
 
-// Disable support for comments and trackbacks in post types
-foreach (get_post_types() as $post_type) {
-if (post_type_supports($post_type, 'comments')) {
-remove_post_type_support($post_type, 'comments');
-remove_post_type_support($post_type, 'trackbacks');
-}
-}
+    // Disable support for comments and trackbacks in post types
+    foreach (get_post_types() as $post_type) {
+        if (post_type_supports($post_type, 'comments')) {
+            remove_post_type_support($post_type, 'comments');
+            remove_post_type_support($post_type, 'trackbacks');
+        }
+    }
 });
 
 // Close comments on the front-end
@@ -122,33 +124,33 @@ add_filter('comments_array', '__return_empty_array', 10, 2);
 
 // Remove comments page in menu
 add_action('admin_menu', function () {
-remove_menu_page('edit-comments.php');
+    remove_menu_page('edit-comments.php');
 });
 
 // Remove comments links from admin bar
 add_action('init', function () {
-if (is_admin_bar_showing()) {
-remove_action('admin_bar_menu', 'wp_admin_bar_comments_menu', 60);
-}
+    if (is_admin_bar_showing()) {
+        remove_action('admin_bar_menu', 'wp_admin_bar_comments_menu', 60);
+    }
 });
 
 /**
-* Disable the REST API
-*/
+ * Disable the REST API
+ */
 add_action(
-'init',
-function () {
-add_filter( 'rest_jsonp_enabled', '__return_false' );
+    'init',
+    function () {
+        add_filter('rest_jsonp_enabled', '__return_false');
 
-remove_action( 'xmlrpc_rsd_apis', 'rest_output_rsd' );
-remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
-remove_action( 'template_redirect', 'rest_output_link_header', 11 );
-}
+        remove_action('xmlrpc_rsd_apis', 'rest_output_rsd');
+        remove_action('wp_head', 'rest_output_link_wp_head', 10);
+        remove_action('template_redirect', 'rest_output_link_header', 11);
+    }
 );
 
 /**
-* Custom Image Size
-*/
+ * Custom Image Size
+ */
 
 // add_action( 'after_setup_theme', function() {
 // add_image_size( 'homepage-sticky-thumb', 940, 537, true );
@@ -159,8 +161,8 @@ remove_action( 'template_redirect', 'rest_output_link_header', 11 );
 
 
 /**
-* Custom single template by category
-*/
+ * Custom single template by category
+ */
 
 // add_filter( "single_template", function($single_template) {
 // global $post;

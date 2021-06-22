@@ -14,14 +14,17 @@ Theme by Sage is a WordPress starter theme with a modern development workflow.
 - [Browsersync](http://www.browsersync.io/) for synchronized browser testing
 - [Blade](https://laravel.com/docs/5.6/blade) as a templating engine
 - [Controller](https://github.com/soberwp/controller) for passing data to Blade templates
-- CSS framework : [Bootstrap 4](https://getbootstrap.com/)
+- CSS framework : [Bootstrap 4](https://getbootstrap.com/) / [Tailwind](https://tailwindcss.com/)
 - Modern free touch slider [Swiper.js](https://swiperjs.com/)
 - Advanced Custom Fields [ACF](http://advancedcustomfields.com/)
 - Custom Post Type [by jjgrainger](https://github.com/jjgrainger/PostTypes)
 - Breadcrumps Function
 - Pagination
+- Releated Posts
+- Footer Widget Area
+- Header Menu
 
-See a working theme at [biznesbezpapieru.pl](https://biznesbezpapieru.pl).
+See a working theme at [webness.local](https://webness.local).
 
 ## Requirements
 
@@ -94,6 +97,16 @@ Edit `app/setup.php` to enable or disable theme features, setup navigation menus
 - Update `resources/assets/config.json` settings:
   - `devUrl` should reflect your local development hostname
   - `publicPath` should reflect your WordPress folder structure (`/wp-content/themes/sage` for non-[Bedrock](https://roots.io/bedrock/) installs)
+- Soil
+  - `clean-up`,
+  - `disable-rest-api`,
+  - `disable-asset-versioning`,
+  - `disable-trackbacks`,
+  - `google-analytics' => 'UA-XXXXX-Y`,
+  - `js-to-footer`,
+  - `nav-walker`,
+  - `nice-search`,
+  - `relative-url`'
 
 ### Build commands
 
@@ -105,3 +118,4 @@ Edit `app/setup.php` to enable or disable theme features, setup navigation menus
 
 - [Sage documentation](https://roots.io/sage/docs/)
 - [Controller documentation](https://github.com/soberwp/controller#usage)
+- [Tailwind documentation](https://tailwindcss.com/docs)
