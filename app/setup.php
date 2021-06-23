@@ -54,15 +54,15 @@ add_action('after_setup_theme', function () {
      * @link https://roots.io/plugins/soil/
      */
     add_theme_support('soil', [
-    'clean-up',
-    'disable-rest-api',
-    'disable-asset-versioning',
-    'disable-trackbacks',
-    'google-analytics' => 'UA-XXXXX-Y',
-    'js-to-footer',
-    'nav-walker',
-    'nice-search',
-    'relative-urls'
+        'clean-up',
+        'disable-rest-api',
+        'disable-asset-versioning',
+        'disable-trackbacks',
+        'google-analytics' => 'UA-XXXXX-Y',
+        'js-to-footer',
+        'nav-walker',
+        'nice-search',
+        'relative-urls'
     ]);
 
     /**
@@ -180,7 +180,7 @@ add_action('after_setup_theme', function () {
 
 /* Enable custom logo */
 
-add_theme_support( 'custom-logo' );
+add_theme_support('custom-logo');
 
 /**
  * Register the theme sidebars.
@@ -208,10 +208,10 @@ add_action('widgets_init', function () {
 
 
 /**
-* Register custom post type bt jjgrainger.
-*
-* @return void
-*/
+ * Register custom post type bt jjgrainger.
+ *
+ * @return void
+ */
 
 $books = new PostType('book');
 
@@ -273,26 +273,70 @@ $books->register();
 
 // // END SECURE ADMIN/LOGIN URL
 
-// ADD Page on activate Theme
+/**
+ * ADD Page on activate Theme
+ */
 
-if (isset($_GET['activated']) && is_admin()){
+if (isset($_GET['activated']) && is_admin()) {
 
-$new_page_title = 'Tytuł';
-$new_page_content = 'Content';
-$new_page_template = ''; //np. template-contact.php , jeżeli używamy szablonu strony
-$page_check = get_page_by_title($new_page_title);
-$new_page = array(
-'post_type' => 'page',
-'post_title' => $new_page_title,
-'post_content' => $new_page_content,
-'post_status' => 'publish',
-'post_author' => 1,
-);
-if(!isset($page_check->ID)){
-$new_page_id = wp_insert_post($new_page);
-if(!empty($new_page_template)){
-update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
-}
+    $new_page_title = 'Tytuł';
+    $new_page_content = 'Content';
+    $new_page_template = ''; //np. template-contact.php , jeżeli używamy szablonu strony
+    $page_check = get_page_by_title($new_page_title);
+    $new_page = array(
+        'post_type' => 'page',
+        'post_title' => $new_page_title,
+        'post_content' => $new_page_content,
+        'post_status' => 'publish',
+        'post_author' => 1,
+    );
+    if (!isset($page_check->ID)) {
+        $new_page_id = wp_insert_post($new_page);
+        if (!empty($new_page_template)) {
+            update_post_meta($new_page_id, '_wp_page_template', $new_page_template);
+        }
+    }
 }
 
-}
+/**
+ * Load custom fonts in TinyMCE
+ */
+
+// function custom_fonts()
+// {
+//     return [
+//         'hoefler-fonts' => 'https://cloud.typography.com/1234/2345/css/fonts.css',
+//         'adobe-fonts' => 'https://use.typekit.net/asdf.css',
+//     ];
+// }
+
+// add_action('wp_enqueue_scripts', function () {
+//     wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
+//     wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
+
+
+//     foreach (custom_fonts() as $handle => $url) {
+//         wp_enqueue_style($handle, $url, false, null);
+//     }
+
+//     if (is_single() && comments_open() && get_option('thread_comments')) {
+//         wp_enqueue_script('comment-reply');
+//     }
+// }, 100);
+
+// // add custom font stylesheets to list of sheets for TinyMCE
+// add_filter('mce_css', function ($sheets) {
+//     foreach (custom_fonts() as $url) {
+//         $sheets .= ",$url";
+//     }
+//     return $sheets;
+// });
+
+/**
+ * Add theme color meta
+ */
+add_action('wp_head', function () {
+?>
+    <meta name="theme-color" content="#f05323" />
+<?php
+});

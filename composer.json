@@ -43,6 +43,7 @@
     "jjgrainger/posttypes": "^2.1",
     "roots/acorn": "dev-main",
     "roots/soil": "^4.0",
+    "stoutlogic/acf-builder": "^1.11",
     "wpvillain/tailwind-navwalker": "dev-master"
   },
   "require-dev": {

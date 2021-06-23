@@ -75,3 +75,139 @@ button:focus {
 .brand {
   @apply text-3xl font-medium text-indigo-500;
 }
+
+/**
+* Text selection color
+*/
+
+::selection {
+  @apply bg-primary text-white;
+}
+
+.bg-primary ::selection,
+.bg-black ::selection {
+  @apply bg-secondary text-black;
+}
+
+/**
+* Basic button style
+*/
+
+%btn {
+  @apply cursor-pointer block my-1 px-3 py-2 text-primary text-center font-sans font-medium uppercase text-xs tracking-wide border border-primary bg-white;
+
+  transition: 0.2s ease;
+
+  &:hover {
+    @apply bg-primary text-white;
+  }
+
+  &:focus {
+    outline-color: config("colors.secondary");
+  }
+
+  @screen md {
+    @apply inline-block;
+  }
+}
+
+.btn {
+  @extend %btn;
+}
+
+/** Gravity Forms */
+body {
+  .gform_wrapper {
+    @apply max-w-sm;
+  }
+
+  .gform_wrapper .gform_heading {
+    @apply mb-4;
+  }
+
+  .gform_wrapper span.gform_description {
+    @apply font-light w-auto;
+  }
+
+  .gform_wrapper label.gfield_label,
+  .gform_wrapper .field_sublabel_below .ginput_complex.ginput_container label {
+    @apply font-sans text-xs font-medium uppercase;
+  }
+
+  .gform_wrapper .field_sublabel_below .ginput_complex.ginput_container label {
+    @apply text-2xs tracking-normal;
+  }
+
+  .gform_wrapper input[type="email"],
+  .gform_wrapper input[type="date"],
+  .gform_wrapper input[type="datetime"],
+  .gform_wrapper input[type="datetime-local"],
+  .gform_wrapper input[type="month"],
+  .gform_wrapper input[type="number"],
+  .gform_wrapper input[type="password"],
+  .gform_wrapper input[type="search"],
+  .gform_wrapper input[type="tel"],
+  .gform_wrapper input[type="text"],
+  .gform_wrapper input[type="time"],
+  .gform_wrapper input[type="week"],
+  .gform_wrapper input[type="url"],
+  .gform_wrapper select,
+  .gform_wrapper textarea,
+  /* prettier-ignore */
+  .gform_wrapper input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]) {
+    @apply border-solid border border-grey-light py-1 px-2 text-sm font-light;
+
+    transition: all 200ms ease-in-out;
+
+    &:focus {
+      @apply border-grey outline-none shadow;
+    }
+  }
+
+  .gform_wrapper .button,
+  .gform_wrapper .gform_footer input[type="submit"] {
+    @extend %btn;
+  }
+
+  .gform_wrapper .gfield_required {
+    color: inherit;
+  }
+
+  .gform_wrapper .validation_error {
+    @apply p-4 py-8 text-red text-center text-base font-regular border-`;
+  }
+
+  .gform_wrapper .gfield_error .gfield_label,
+  .gform_wrapper li.gfield_error div.ginput_complex.ginput_container label,
+  .gform_wrapper li.gfield_error ul.gfield_checkbox,
+  .gform_wrapper li.gfield_error ul.gfield_radio {
+    @apply text-red;
+  }
+
+  /* prettier-ignore */
+  .gform_wrapper li.gfield_error input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]),
+  .gform_wrapper li.gfield_error textarea {
+    @apply border-red;
+  }
+
+  .gform_wrapper .validation_message {
+    @apply w-full text-red font-regular;
+  }
+
+  .gform_validation_container {
+    display: none !important;
+  }
+}
+
+/** Responsive oembed */
+
+.video-wrapper {
+  @apply relative overflow-hidden max-w-full text-0;
+
+  padding-bottom: 56.25%;
+  height: 0;
+
+  iframe {
+    @apply absolute pin-t pin-l w-full h-full;
+  }
+}
