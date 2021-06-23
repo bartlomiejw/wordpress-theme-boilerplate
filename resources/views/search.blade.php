@@ -5,7 +5,7 @@
 
 @if (! have_posts())
 <x-alert type="warning">
-  {!! __('Sorry, no results were found.', 'webness') !!}
+  {!! __('Sorry, no results were found.', 'grupaww') !!}
 </x-alert>
 
 {!! get_search_form(false) !!}

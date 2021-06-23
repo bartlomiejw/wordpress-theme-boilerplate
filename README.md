@@ -1,4 +1,4 @@
-# [Wordpress Theme Boilerplate by Sage](https://webness.in)
+# [Wordpress Theme Boilerplate by Sage](https://grupaww.in)
 
 [![Packagist](https://img.shields.io/packagist/vpre/roots/sage.svg?style=flat-square)](https://packagist.org/packages/roots/sage)
 [![devDependency Status](https://img.shields.io/david/dev/roots/sage.svg?style=flat-square)](https://david-dm.org/roots/sage#info=devDependencies)
@@ -24,7 +24,7 @@ Theme by Sage is a WordPress starter theme with a modern development workflow.
 - Footer Widget Area
 - Header Menu
 
-See a working theme at [webness.local](https://webness.local).
+See a working theme at [grupaww.local](https://grupaww.local).
 
 ## Requirements
 

@@ -12,7 +12,7 @@ require('@tinypixelco/laravel-mix-wp-blocks');
  |
  */
 
-mix.setPublicPath('./public').browserSync('webness.local');
+mix.setPublicPath('./public').browserSync('grupawwstarter.local');
 
 mix
   .sass('resources/styles/app.scss', 'styles')

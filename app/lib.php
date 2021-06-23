@@ -35,7 +35,7 @@
  *
  */
 
-function webness_pagination(\WP_Query $wp_query = null, $echo = true, $params = [])
+function grupaww_pagination(\WP_Query $wp_query = null, $echo = true, $params = [])
 {
     if (null === $wp_query) {
         global $wp_query;

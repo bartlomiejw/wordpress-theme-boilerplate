@@ -92,9 +92,9 @@
   </div>
   <div class="bg-gray-100">
     <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-      <p class="text-gray-500 text-sm text-center sm:text-left">© 2021 Webness —
-        <a href="http://webness.in/" rel="noopener noreferrer" class="text-gray-600 ml-1"
-          target="_blank">webness.in</a>
+      <p class="text-gray-500 text-sm text-center sm:text-left">© 2021 grupaww —
+        <a href="http://grupaww.in/" rel="noopener noreferrer" class="text-gray-600 ml-1"
+          target="_blank">grupaww.in</a>
       </p>
       <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
         <a class="text-gray-500">
